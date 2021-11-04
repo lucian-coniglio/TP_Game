@@ -13,6 +13,10 @@ object alien {
 		if (position.y() == game.height() - 1) {position = game.at(position.x(), 0)}
 		else {position = position.up(1)}
 	}
+	method bajar() {
+		if (position.y() == 0) {position = game.at(position.x(), game.height() - 1)}
+		else {position = position.down(1)}
+	}
 	method derecha() {
 		if (position.x() == game.width() - 1) {position = game.at(0, position.y())}
 		else {position = position.right(1)}
@@ -21,9 +25,6 @@ object alien {
 		if (position.x() == 0) {position = game.at(game.width() - 1, position.y())}
 		else {position = position.left(1)}
 	}
-	method bajar() {
-		if (position.y() == 0) {position = game.at(position.x(), game.height() - 1)}
-		else {position = position.down(1)}
-	}
+	
 }
 
