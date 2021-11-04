@@ -8,6 +8,13 @@ object utilidadesParaJuego {
 	}
 }
 
+// Registro de posiciones aleatorias usadas para no repetir
+object posArbitrariasUsadas {
+	const property posiciones = []
+	method agregarPosicion(posicion) {posiciones.add(posicion)}
+	method laPosicionEstaUsada(posicion) {return posiciones.contains(posicion)}
+}
+
 object nivelSuperado {
 	var property position = game.center()
 	
