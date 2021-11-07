@@ -19,3 +19,10 @@ class Materia inherits Bloque {
 class Nanomaquinas inherits Bloque {
 	override method usar() {alien.curar(1.randomUpTo(30) ) }
 }
+
+//Elemento coleccionable
+class TarjetaAcceso inherits Bloque {
+	const property image = //Agregar imagen de tarjeta
+}
+
+

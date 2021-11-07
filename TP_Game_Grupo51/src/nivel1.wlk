@@ -19,10 +19,18 @@ object nivelBloques {
 		
 		// teclado
 		
-		keyboard.w().onPressDo{alien.subir()}
-		keyboard.d().onPressDo{alien.derecha()}
-		keyboard.a().onPressDo{alien.izquierda()}
-		keyboard.s().onPressDo{alien.bajar()}
+		keyboard.w().onPressDo{alien.subir()
+			alien.energia(alien.energia() - 1)
+		}
+		keyboard.d().onPressDo{alien.derecha()
+			alien.energia(alien.energia() - 1)
+		}
+		keyboard.a().onPressDo{alien.izquierda()
+			alien.energia(alien.energia() - 1)
+		}
+		keyboard.s().onPressDo{alien.bajar()
+			alien.energia(alien.energia() - 1)
+		}
 		// este es para probar, no es necesario dejarlo
 		keyboard.t().onPressDo({ self.terminar() })
 
