@@ -13,6 +13,7 @@ object alien {
 	
 	method consumir(cantEnergia) {energia += cantEnergia}
 	method curar(cantSalud) {salud += cantSalud}
+	method daniar(cantDanio) {salud -= cantDanio}
 	
 	method subir() {
 		if (position.y() == game.height() - 1) {position = game.at(position.x(), 0)}
@@ -29,6 +30,10 @@ object alien {
 	method izquierda() {
 		if (position.x() == 0) {position = game.at(game.width() - 1, position.y())}
 		else {position = position.left(1)}
+	}
+	
+	method usarItem() {
+			
 	}
 	
 }

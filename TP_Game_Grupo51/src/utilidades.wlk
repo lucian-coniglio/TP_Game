@@ -1,4 +1,5 @@
 import wollok.game.*
+import personajes.*
 
 object utilidadesParaJuego {
 	method posicionArbitraria() {
@@ -27,6 +28,18 @@ object posArbitrariasUsadas {
 	const property posiciones = []
 	method agregarPosicion(posicion) {posiciones.add(posicion)}
 	method laPosicionEstaUsada(posicion) {return posiciones.contains(posicion)}
+}
+
+//Mostrar energia del alien en pantalla
+object energiaAlien() {
+	const property position = game.at(game.height() - 1, 3)
+	method text() = alien.energia()
+}
+
+//Mostrar salud del alien en pantalla
+object saludAlien() {
+	const property position = game.at(game.height() - 1, 1)
+	method text() = alien.salud()
 }
 
 object nivelSuperado {

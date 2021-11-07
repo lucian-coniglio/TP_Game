@@ -10,6 +10,9 @@ object nivelLlaves {
 		game.addVisual(new Fondo(image="Fondo_Area_51.png"))
 				 
 		// otros visuals, p.ej. bloques o llaves
+		game.addVisual(energiaAlien())
+		game.addVisual(saludAlien())
+		
 		
 		// personaje, es importante que sea el último visual que se agregue
 		game.addVisual(alien)
@@ -25,6 +28,7 @@ object nivelLlaves {
 		keyboard.g().onPressDo({ self.ganar() })
 
 		// colisiones, acá sí hacen falta
+		game.whenCollideDo(alien, {elemento => )
 	}
 	
 	method ganar() {

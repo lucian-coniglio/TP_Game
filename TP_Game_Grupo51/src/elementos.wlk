@@ -25,4 +25,22 @@ class TarjetaAcceso inherits Bloque {
 	const property image = //Agregar imagen de tarjeta
 }
 
+// Trampa que quita 15 energia
+class Trampa inherits Bloque {
+	const property image =
+	override method usar() {alien.daniar(15)}
+}
+
+// Trampa que aumenta 15 energia
+class Booster inherits Bloque {
+	const property image =
+	override method usar() {alien.consumir(30)}
+}
+
+// Trampa que cambia de lugar al personaje
+class Teletransportador inherits Bloque {
+	const property image =
+	override method usar() {alien.position(utilidadesParaJuego.posicionArbitraria() ) }
+}
+
 
