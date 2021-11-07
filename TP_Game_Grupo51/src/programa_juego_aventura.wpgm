@@ -4,7 +4,7 @@ import personajes.*
 import utilidades.*
 program juego_aventura {
 
-	game.title("Oh qué aventura objetosa")
+	game.title("Escape AREA-51")
 	game.height(16)
 	game.width(16)
 	game.boardGround("fondoBlanco.png")

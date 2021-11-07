@@ -13,6 +13,7 @@ object nivelBloques {
 				 
 		// otros visuals, p.ej. bloques o llaves
 		game.addVisual(new Bloque(position=game.at(3,12)))
+		
 			
 		// personaje, es importante que sea el último visual que se agregue
 		game.addVisual(alien)

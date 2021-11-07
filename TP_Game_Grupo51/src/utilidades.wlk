@@ -7,6 +7,20 @@ object utilidadesParaJuego {
 		)
 	}
 }
+// Testear
+object utilidadesParaJuego2 {
+	method posicionArbitraria() {
+		var pos = game.at(
+			0.randomUpTo(game.width()).truncate(0), 0.randomUpTo(game.height()).truncate(0) )
+		if (posArbitrariasUsadas.laPosicionEstaUsada(pos)) {
+			return self.posicionArbitraria()
+		}
+		else {
+			posArbitrariasUsadas.agregarPosicion(pos)
+			return pos
+		}
+	}
+}
 
 // Registro de posiciones aleatorias usadas para no repetir
 object posArbitrariasUsadas {
