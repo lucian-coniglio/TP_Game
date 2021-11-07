@@ -8,6 +8,11 @@ import utilidades.*
 object alien {
 	var property position = game.at(10,8)
 	const property image = "Alien_frente.png"
+	var energia = 30
+	var salud = 30
+	
+	method consumir(cantEnergia) {energia += cantEnergia}
+	method curar(cantSalud) {salud += cantSalud}
 	
 	method subir() {
 		if (position.y() == game.height() - 1) {position = game.at(position.x(), 0)}

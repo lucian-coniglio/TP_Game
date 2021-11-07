@@ -10,7 +10,7 @@ object nivelLlaves {
 		game.addVisual(new Fondo(image="Fondo_Area_51.png"))
 				 
 		// otros visuals, p.ej. bloques o llaves
-			
+		
 		// personaje, es importante que sea el último visual que se agregue
 		game.addVisual(alien)
 		
