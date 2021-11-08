@@ -10,6 +10,7 @@ object alien {
 	const property image = "Alien_frente.png"
 	var energia = 30
 	var salud = 30
+	var ultimaDireccion = 
 	
 	method consumir(cantEnergia) {energia += cantEnergia}
 	method curar(cantSalud) {salud += cantSalud}
@@ -35,6 +36,7 @@ object alien {
 	method usarItem() {
 			
 	}
+	
 	
 }
 
