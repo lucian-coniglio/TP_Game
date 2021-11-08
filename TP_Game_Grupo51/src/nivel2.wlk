@@ -24,11 +24,14 @@ object nivelLlaves {
 		keyboard.a().onPressDo{alien.izquierda()}
 		keyboard.s().onPressDo{alien.bajar()}
 		
+		//Usar elementos
+		keyboard.e()onPressDo({})
+		
 		// este es para probar, no es necesario dejarlo
 		keyboard.g().onPressDo({ self.ganar() })
 
 		// colisiones, acá sí hacen falta
-		game.whenCollideDo(alien, {elemento => )
+		game.whenCollideDo(alien, {elemento => })
 	}
 	
 	method ganar() {

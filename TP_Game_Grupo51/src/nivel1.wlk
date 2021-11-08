@@ -34,6 +34,10 @@ object nivelBloques {
 		keyboard.s().onPressDo{alien.bajar()
 			alien.energia(alien.energia() - 1)
 		}
+		
+		//Usar elementos
+		keyboard.e()onPressDo({})
+		
 		// este es para probar, no es necesario dejarlo
 		keyboard.t().onPressDo({ self.terminar() })
 
