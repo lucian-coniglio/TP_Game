@@ -13,22 +13,25 @@ class Bloque {
 
 // Elemento que da energia al personaje
 class Materia inherits Bloque {
+	const property image = //Agregar imagen
 	override method usar() {alien.consumir(1.randomUpTo(30) ) }
 }
 
 // Elemento que da salud al personaje
 class Nanomaquinas inherits Bloque {
+	const property image = //Agregar imagen
 	override method usar() {alien.curar(1.randomUpTo(30) ) }
 }
 
 //Elemento coleccionable
 class TarjetaAcceso inherits Bloque {
 	const property image = //Agregar imagen de tarjeta
+	override method usar() {}
 }
 
 // Trampa que quita 15 energia
 class Trampa inherits Bloque {
-	const property image =
+	const property image = 
 	override method usar() {}
 	override method alColisionar() {alien.daniar(15)}
 }

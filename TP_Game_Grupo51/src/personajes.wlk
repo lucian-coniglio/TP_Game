@@ -31,7 +31,7 @@ object alien {
 		if (position.x() == 0) {position = game.at(game.width() - 1, position.y())}
 		else {position = position.left(1)}
 	}
-	
+	//Metodo tentativo para usar items puede que sea mejor dejarlo en el nivel o elementos
 	method usarItem() {
 			
 	}

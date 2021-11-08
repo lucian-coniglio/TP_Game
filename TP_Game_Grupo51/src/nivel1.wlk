@@ -6,7 +6,7 @@ import nivel2.*
 import utilidades.*
 
 object nivelBloques {
-
+	
 	method configurate() {
 		// fondo - es importante que sea el primer visual que se agregue
 		game.addVisual(new Fondo(image="Fondo_Area_51.png"))
