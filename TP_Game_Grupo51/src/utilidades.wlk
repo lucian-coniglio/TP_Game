@@ -40,6 +40,7 @@ object energiaAlien() {
 object saludAlien() {
 	const property position = game.at(game.height() - 1, 1)
 	method text() = alien.salud()
+	method textColor() = "FF0000FF"
 }
 
 object nivelSuperado {
