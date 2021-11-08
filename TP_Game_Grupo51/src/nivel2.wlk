@@ -31,7 +31,8 @@ object nivelLlaves {
 		keyboard.g().onPressDo({ self.ganar() })
 
 		// colisiones, acá sí hacen falta
-		game.whenCollideDo(alien, {elemento => })
+		// faltan casos de movimiento/empujar
+		game.whenCollideDo(alien, {elemento => elemento.alColisionar() } )
 	}
 	
 	method ganar() {
