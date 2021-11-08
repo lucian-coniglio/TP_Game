@@ -66,5 +66,24 @@ class Teletransportador inherits Bloque {
 	override method usar() {}
 	override method alColisionar() {alien.position(utilidadesParaJuego.posicionArbitraria() ) }
 }
+//Testear Colision
+class Caja inherits Bloque {
+	const property image =
+	override method usar() {}
+	override method alColisionar() {
+		if (alien.ultimaDireccion == "arriba") {
+			self.subir()
+		}
+		else if (alien.ultimaDireccion == "abajo") {
+			self.bajar()
+		}
+		else if (alien.ultimaDireccion == "derecha") {
+			self.derecha()
+		}
+		else {
+			self.izquierda()
+		}
+	}
+}
 
 
