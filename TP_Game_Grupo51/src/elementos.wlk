@@ -84,6 +84,20 @@ class Caja inherits Bloque {
 			self.izquierda()
 		}
 	}
+// Elemento que da dinero y quita salud 
+class Dinero inherits Bloque {
+
+	const property image
+
+	override method usar() {
+	}
+
+	override method alColisionar() {
+		alien.ahorra(3)
+		alien.daniar(5)
+	}
+
+}
 }
 
 
