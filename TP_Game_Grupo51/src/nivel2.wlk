@@ -58,5 +58,14 @@ object nivelLlaves {
 		})
 	}
 	
+	method comprobarSiGano(elementos) {
+		if (elementos.all{ c => c.colisionoConTodos() and alien.tieneEnergia() }) {
+			game.say(alien, "GANASTE")
+			game.addVisual(image = "puerta.png")
+		}
+	}
+
+}
+	
 	
 }
