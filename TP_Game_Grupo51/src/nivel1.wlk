@@ -65,6 +65,12 @@ object nivelBloques {
 			})
 		})
 	}
+	method comprobarSiGano(cajas) {
+		if (cajas.all{ c => c.estaBienPosicionada() }) {
+		game.say(alien, "GANASTE")
+		}
+	}
+
 		
 }
 
