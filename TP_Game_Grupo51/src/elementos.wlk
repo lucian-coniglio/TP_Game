@@ -87,7 +87,7 @@ class Caja inherits Bloque {
 // Elemento que da dinero y quita salud 
 class Dinero inherits Bloque {
 
-	const property image
+	const property image = "dinero.png"
 
 	override method usar() {
 	}
