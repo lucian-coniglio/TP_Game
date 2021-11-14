@@ -10,9 +10,9 @@ object utilidadesParaJuego {
 }
 // Testear
 object utilidadesParaJuego2 {
+	const pos = game.at(0.randomUpTo(game.width()).truncate(0), 0.randomUpTo(game.height()).truncate(0) )
 	method posicionArbitraria() {
-		var pos = game.at(
-			0.randomUpTo(game.width()).truncate(0), 0.randomUpTo(game.height()).truncate(0) )
+		
 		if (posArbitrariasUsadas.laPosicionEstaUsada(pos)) {
 			return self.posicionArbitraria()
 		}
@@ -46,8 +46,8 @@ object saludAlien {
 object posicion {
 	//Verifica que dos elementos esten a una sola posicion de distancia del otro
 	method seEncuentranCerca(elem1, elem2) {
-		return (elem1.position.y() == elem2.position.y() and elem1.position.x() - elem2.position.x().abs() == 1)
-		or (elem1.position.x() == elem2.position.x() and elem1.position.y() - elem2.position.y().abs() == 1)
+		return (elem1.position().y() == elem2.position().y() and elem2.position().x() - elem2.position().x().abs() == 1)
+		or (elem1.position().x() == elem2.position().x() and elem1.position().y() - elem2.position().y().abs() == 1)
 	}
 }
 
@@ -73,4 +73,3 @@ object victoriaDefinitiva {
 	
 	method textColor() = "000000FF"
 }
-
