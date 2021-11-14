@@ -21,10 +21,18 @@ object nivelLlaves {
 		
 		// teclado
 		
-		keyboard.w().onPressDo{alien.subir()}
-		keyboard.d().onPressDo{alien.derecha()}
-		keyboard.a().onPressDo{alien.izquierda()}
-		keyboard.s().onPressDo{alien.bajar()}
+		keyboard.w().onPressDo{if (alien.tieneEnergia()) {alien.subir()
+			alien.energia(alien.energia() - 1) }
+		}
+		keyboard.d().onPressDo{if (alien.tieneEnergia()) {alien.derecha()
+			alien.energia(alien.energia() - 1) }
+		}
+		keyboard.a().onPressDo{if (alien.tieneEnergia()) {alien.izquierda()
+			alien.energia(alien.energia() - 1) }
+		}
+		keyboard.s().onPressDo{if (alien.tieneEnergia()) {alien.bajar()
+			alien.energia(alien.energia() - 1) }
+		}
 		
 		//Usar elementos si es que estan a una posicion de distancia del alien
 		keyboard.e().onPressDo({elementosEnNivel.elementos().forEach({elem => if (posicion.seEncuentranCerca(alien, elem)) {elem.usar()} else {} } ) } )

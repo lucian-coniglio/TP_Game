@@ -22,17 +22,17 @@ object nivelBloques {
 		
 		// teclado
 		
-		keyboard.w().onPressDo{alien.subir()
-			alien.energia(alien.energia() - 1)
+		keyboard.w().onPressDo{if (alien.tieneEnergia()) {alien.subir()
+			alien.energia(alien.energia() - 1) }
 		}
-		keyboard.d().onPressDo{alien.derecha()
-			alien.energia(alien.energia() - 1)
+		keyboard.d().onPressDo{if (alien.tieneEnergia()) {alien.derecha()
+			alien.energia(alien.energia() - 1) }
 		}
-		keyboard.a().onPressDo{alien.izquierda()
-			alien.energia(alien.energia() - 1)
+		keyboard.a().onPressDo{if (alien.tieneEnergia()) {alien.izquierda()
+			alien.energia(alien.energia() - 1) }
 		}
-		keyboard.s().onPressDo{alien.bajar()
-			alien.energia(alien.energia() - 1)
+		keyboard.s().onPressDo{if (alien.tieneEnergia()) {alien.bajar()
+			alien.energia(alien.energia() - 1) }
 		}
 		
 		//Usar elementos
