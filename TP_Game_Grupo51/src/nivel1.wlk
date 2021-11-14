@@ -36,7 +36,7 @@ object nivelBloques {
 		}
 		
 		//Usar elementos
-		keyboard.e().onPressDo({})
+		keyboard.e().onPressDo({elementosEnNivel.elementos().forEach({elem => if (posicion.seEncuentranCerca(alien, elem)) {elem.usar()} else {} } ) } )
 		
 		// este es para probar, no es necesario dejarlo
 		keyboard.t().onPressDo({ self.terminar() })

@@ -51,6 +51,12 @@ object posicion {
 	}
 }
 
+object elementosEnNivel {
+	const property elementos = []
+	method agregarElem(elemento) {elementos.add(elemento)}
+	method vaciarColeccion() {elementos.removeAll()}
+}
+
 object nivelSuperado {
 	var property position = game.center()
 	

@@ -27,7 +27,7 @@ object nivelLlaves {
 		keyboard.s().onPressDo{alien.bajar()}
 		
 		//Usar elementos si es que estan a una posicion de distancia del alien
-		keyboard.e().onPressDo({elementos.forEach({elem => if () {elem.usar()} else {} } ) } )
+		keyboard.e().onPressDo({elementosEnNivel.elementos().forEach({elem => if (posicion.seEncuentranCerca(alien, elem)) {elem.usar()} else {} } ) } )
 		
 		// este es para probar, no es necesario dejarlo
 		keyboard.g().onPressDo({ self.ganar() })
