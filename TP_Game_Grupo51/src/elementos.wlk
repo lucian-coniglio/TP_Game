@@ -48,7 +48,7 @@ class TarjetaAcceso inherits Bloque {
 
 // Trampa que quita 15 energia
 class Trampa inherits Bloque {
-	const property image = 
+	const property image = "trampa.png"
 	override method usar() {}
 	override method alColisionar() {alien.daniar(15)}
 }
@@ -84,6 +84,20 @@ class Caja inherits Bloque {
 			self.izquierda()
 		}
 	}
+// Elemento que da dinero y quita salud 
+class Dinero inherits Bloque {
+
+	const property image = "dinero.png"
+
+	override method usar() {
+	}
+
+	override method alColisionar() {
+		alien.ahorra(3)
+		alien.daniar(5)
+	}
+
+}
 }
 
 

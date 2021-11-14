@@ -10,12 +10,16 @@ object alien {
 	const property image = "Alien_frente.png"
 	var energia = 30
 	var salud = 30
+	var dinero = 0
 	//Direccion para usar durante colision
 	var ultimaDireccion = "arriba"
 	
 	method consumir(cantEnergia) {energia += cantEnergia}
 	method curar(cantSalud) {salud += cantSalud}
 	method daniar(cantDanio) {salud -= cantDanio}
+	method ahorra(cantDinero) {dinero += cantDinero}
+	
+	method tieneEnergia = energia > 0 
 	
 	method subir() {
 		if (position.y() == game.height() - 1) {position = game.at(position.x(), 0)}

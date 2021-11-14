@@ -31,13 +31,13 @@ object posArbitrariasUsadas {
 }
 
 //Mostrar energia del alien en pantalla
-object energiaAlien() {
+object energiaAlien {
 	const property position = game.at(game.height() - 1, 3)
 	method text() = alien.energia()
 }
 
 //Mostrar salud del alien en pantalla
-object saludAlien() {
+object saludAlien {
 	const property position = game.at(game.height() - 1, 1)
 	method text() = alien.salud()
 	method textColor() = "FF0000FF"
