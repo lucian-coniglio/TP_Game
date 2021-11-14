@@ -1,5 +1,3 @@
-import wollok.game.*
-import fondo.*
 import personajes.*
 import elementos.*
 import nivel2.*
@@ -14,9 +12,9 @@ object nivelBloques {
 		game.addVisual(new Fondo(image="Fondo_Area_51.png"))
 				 
 		// otros visuals, p.ej. bloques o llaves
-		game.addVisual(new Bloque(position=game.at(3,12)))
-		game.addVisual(energiaAlien())
-		game.addVisual(saludAlien())
+		game.addVisual(new Enemigo(position = game.at(3,12)))
+		game.addVisual(saludAlien)
+		game.addVisual(energiaAlien)
 		
 			
 		// personaje, es importante que sea el último visual que se agregue
@@ -38,7 +36,7 @@ object nivelBloques {
 		}
 		
 		//Usar elementos
-		keyboard.e()onPressDo({})
+		keyboard.e().onPressDo({})
 		
 		// este es para probar, no es necesario dejarlo
 		keyboard.t().onPressDo({ self.terminar() })
@@ -71,8 +69,5 @@ object nivelBloques {
 		if (cajas.all{ c => c.estaBienPosicionada() }) {
 		game.say(alien, "GANASTE")
 		}
-	}
-
-		
+	}		
 }
-
