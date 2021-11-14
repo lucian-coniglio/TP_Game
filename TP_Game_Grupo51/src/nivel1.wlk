@@ -6,6 +6,8 @@ import nivel2.*
 import utilidades.*
 
 object nivelBloques {
+	//Collecion para usar elementos, agregarlos al crear el nivel
+	const property elementos = []
 	
 	method configurate() {
 		// fondo - es importante que sea el primer visual que se agregue

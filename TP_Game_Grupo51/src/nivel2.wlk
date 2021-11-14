@@ -4,7 +4,9 @@ import personajes.*
 import utilidades.*
 
 object nivelLlaves {
-
+	//Collecion para usar elementos, agregarlos al crear el nivel
+	const property elementos = []
+	
 	method configurate() {
 		// fondo - es importante que sea el primer visual que se agregue
 		game.addVisual(new Fondo(image="Fondo_Area_51.png"))
@@ -24,8 +26,8 @@ object nivelLlaves {
 		keyboard.a().onPressDo{alien.izquierda()}
 		keyboard.s().onPressDo{alien.bajar()}
 		
-		//Usar elementos
-		keyboard.e()onPressDo({})
+		//Usar elementos si es que estan a una posicion de distancia del alien
+		keyboard.e()onPressDo({elementos.forEach({e => if () {e.usar()} else {} } ) } )
 		
 		// este es para probar, no es necesario dejarlo
 		keyboard.g().onPressDo({ self.ganar() })
