@@ -12,8 +12,8 @@ object nivelLlaves {
 		game.addVisual(new Fondo(image="Fondo_Area_51.png"))
 				 
 		// otros visuals, p.ej. bloques o llaves
-		game.addVisual(energiaAlien())
-		game.addVisual(saludAlien())
+		game.addVisual(alien.energia())
+		game.addVisual(alien.salud())
 		
 		
 		// personaje, es importante que sea el último visual que se agregue
@@ -27,7 +27,7 @@ object nivelLlaves {
 		keyboard.s().onPressDo{alien.bajar()}
 		
 		//Usar elementos si es que estan a una posicion de distancia del alien
-		keyboard.e()onPressDo({elementos.forEach({e => if () {e.usar()} else {} } ) } )
+		keyboard.e().onPressDo({elementos.forEach({elem => if () {elem.usar()} else {} } ) } )
 		
 		// este es para probar, no es necesario dejarlo
 		keyboard.g().onPressDo({ self.ganar() })
@@ -60,14 +60,11 @@ object nivelLlaves {
 		})
 	}
 	
-	method comprobarSiGano(elementos) {
+	method comprobarSiGano() {
 		if (elementos.all{ c => c.colisionoConTodos() and alien.tieneEnergia() }) {
 			game.say(alien, "GANASTE")
-			game.addVisual(image = "puerta.png")
+			game.addVisual("puerta.png")
 		}
 	}
 
-}
-	
-	
 }
