@@ -1,3 +1,5 @@
+import wollok.game.*
+import fondo.*
 import personajes.*
 import elementos.*
 import nivel2.*
@@ -35,7 +37,6 @@ object nivelBloques {
 
 		// en este no hacen falta colisiones
 	}
-	
 	method terminar() {
 		// game.clear() limpia visuals, teclado, colisiones y acciones
 		game.clear()
@@ -56,10 +57,5 @@ object nivelBloques {
 				nivelLlaves.configurate()
 			})
 		})
-	}
-	method comprobarSiGano(cajas) {
-		if (cajas.all{ c => c.estaBienPosicionada() }) {
-		game.say(alien, "GANASTE")
-		}
-	}		
+	}	
 }
