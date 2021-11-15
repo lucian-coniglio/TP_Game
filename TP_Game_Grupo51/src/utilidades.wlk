@@ -1,3 +1,4 @@
+
 import wollok.game.*
 import personajes.*
 
@@ -54,7 +55,7 @@ object posicion {
 object elementosEnNivel {
 	const property elementos = []
 	method agregarElem(elemento) {elementos.add(elemento)}
-	method vaciarColeccion() {elementos.removeAll()}
+	method vaciarColeccion() {elementos.clear()}
 }
 
 object nivelSuperado {
