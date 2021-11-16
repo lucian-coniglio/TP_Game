@@ -1,5 +1,6 @@
 import wollok.game.*
 import utilidades.*
+import elementos.*
 
 // en la implementación real, conviene tener un personaje por nivel
 // los personajes probablemente tengan un comportamiendo más complejo que solamente
@@ -14,10 +15,21 @@ object alien {
 	//Direccion para usar durante colision
 	var property ultimaDireccion = "arriba"
 	
-	method consumir(cantEnergia) {energia += cantEnergia}
-	method curar(cantSalud) {salud += cantSalud}
-	method daniar(cantDanio) {salud -= cantDanio}
-	method ahorra(cantDinero) {dinero += cantDinero}
+	method consumir(cantEnergia) {
+		energia += cantEnergia
+		energiaAlien.energia(energia)
+	}
+	method curar(cantSalud) {
+		salud += cantSalud
+		saludAlien.salud(salud)
+	}
+	method daniar(cantDanio) {
+		salud -= cantDanio
+		saludAlien.salud(salud)
+	}
+	method ahorra(cantDinero) {
+		dinero += cantDinero
+	}
 	
 	method tieneEnergia() = energia > 0
 	method hayElementosCerca(tipo) {}
@@ -28,6 +40,7 @@ object alien {
 		else {position = position.up(1)}
 		energia -= 1
 		ultimaDireccion = "arriba"
+		energiaAlien.energia(energia)
 	}
 	method bajar() {
 		image = "Alien_frente.png"
@@ -35,6 +48,7 @@ object alien {
 		else {position = position.down(1)}
 		energia -= 1
 		ultimaDireccion = "abajo"
+		energiaAlien.energia(energia)
 	}
 	method derecha() {
 		image = "Alien_derecha.png"
@@ -42,6 +56,7 @@ object alien {
 		else {position = position.right(1)}
 		energia -= 1
 		ultimaDireccion = "derecha"
+		energiaAlien.energia(energia)
 	}
 	method izquierda() {
 		image = "Alien_izquierda.png"
@@ -49,5 +64,6 @@ object alien {
 		else {position = position.left(1)}
 		energia -= 1
 		ultimaDireccion = "izquierda"
+		energiaAlien.energia(energia)
 	}
 }
