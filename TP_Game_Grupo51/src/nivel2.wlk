@@ -5,7 +5,7 @@ import utilidades.*
 import nivel1.*
 import elementos.*
 
-object nivelLlaves {
+object nivel2 {
 	//Collecion para usar elementos, agregarlos al crear el nivel
 	const property elementos = []
 	
@@ -13,11 +13,23 @@ object nivelLlaves {
 		// fondo - es importante que sea el primer visual que se agregue
 		game.addVisual(new Fondo(image="Fondo_Area_51.png"))
 		
+		const guardia1 = new Enemigo(position = game.at(3,12))
+		const maquina1 = new Nanomaquinas(position = game.at(7,4))
+		const trampa1 = new Trampa(position = game.at(3,8))
+		const materia1 = new Materia(position = game.at(11, game.height()-1))
+		
+		game.addVisual(guardia1)
+		game.addVisual(maquina1)
+		elementos.add(maquina1)
+		game.addVisual(trampa1)
+		game.addVisual(materia1)
+		elementos.add(materia1)
+		
 		//game.addVisual(energiaAlien)
 		//game.addVisual(saludAlien)
 		
-		keyboard.e().onPressDo{game.say(alien, alien.energia())}
-		keyboard.q().onPressDo{game.say(alien, alien.salud())}
+		keyboard.e().onPressDo{game.say(alien, "energia: " + alien.energia())}
+		keyboard.q().onPressDo{game.say(alien, "salud: " +  alien.salud())}
 		
 		// personaje, es importante que sea el último visual que se agregue
 		game.addVisual(alien)
@@ -28,16 +40,21 @@ object nivelLlaves {
 		keyboard.a().onPressDo{if (alien.tieneEnergia()) {alien.izquierda()}}
 		keyboard.s().onPressDo{if (alien.tieneEnergia()) {alien.bajar()}}
 		
+		game.whenCollideDo(alien, {elemento => elemento.alColisionar() elementos.remove(elemento) self.comprobarVictoria()} )
+		keyboard.r().onPressDo{elementos.filter({elem => utilidadesParaJuego2.puedeRecogerse(elem)})
+			.forEach({elem => elem.usar() elementos.remove(elem) self.comprobarVictoria()})}
+		
 		//Los elementos se utilizan al colisionar con ellos
 		game.whenCollideDo(alien, {elemento => elemento.alColisionar() elementos.remove(elemento)} )
 		
 		// este es para probar, no es necesario dejarlo
 		keyboard.g().onPressDo({ self.ganar() })
-
-		// colisiones, acá sí hacen falta
-		// faltan casos de movimiento/empujar
-		
 	}
+	method comprobarVictoria() {
+		if(elementos.isEmpty()) {self.ganar()}
+	}
+		
+	
 	method ganar() {
 		// es muy parecido al terminar() de nivelBloques
 		// el perder() también va a ser parecido
@@ -60,4 +77,6 @@ object nivelLlaves {
 			})
 		})
 	}
+	
+
 }

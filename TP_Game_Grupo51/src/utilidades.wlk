@@ -15,12 +15,15 @@ object utilidadesParaJuego2 {
 	method posicionArbitraria() {
 		
 		if (posArbitrariasUsadas.laPosicionEstaUsada(pos)) {
-			return self.posicionArbitraria()
+			return utilidadesParaJuego.posicionArbitraria()
 		}
 		else {
 			posArbitrariasUsadas.agregarPosicion(pos)
 			return pos
 		}
+	}
+	method puedeRecogerse(elem) {
+		return posicion.seEncuentranCerca(alien, elem)
 	}
 }
 
@@ -33,7 +36,7 @@ object posArbitrariasUsadas {
 
 //Mostrar energia del alien en pantalla
 object energiaAlien {
-	const property position = game.at(9, 3)
+	const property position = game.at(1, game.height() - 1)
 	var property energia = alien.energia()
 	method text() = energia
 	method textColor() = "00FF00FF"
@@ -41,7 +44,7 @@ object energiaAlien {
 
 //Mostrar salud del alien en pantalla
 object saludAlien {
-	const property position = game.at(9, 1)
+	const property position = game.at(1, game.height() - 3)
 	var property salud = alien.salud()
 	method text() = salud
 	method textColor() = "FF0000FF"
@@ -50,8 +53,15 @@ object saludAlien {
 object posicion {
 	//Verifica que dos elementos esten a una sola posicion de distancia del otro
 	method seEncuentranCerca(elem1, elem2) {
+<<<<<<< HEAD
 		return (elem1.position().y() == elem2.position().y() and (elem2.position().x() - elem2.position().x()).abs() == 1)
 		or (elem1.position().x() == elem2.position().x() and (elem1.position().y() - elem2.position().y()).abs() == 1)
+=======
+		return (elem1.position().y() == elem2.position().y() and elem2.position().x() - elem2.position().x().abs() == 1)
+		or (elem1.position().x() == elem2.position().x() and elem1.position().y() - elem2.position().y().abs() == 1)
+		or (elem1.position().y() == elem2.position().y() and elem2.position().x() - elem2.position().x().abs() == -1)
+		or (elem1.position().x() == elem2.position().x() and elem1.position().y() - elem2.position().y().abs() == -1)
+>>>>>>> 160b54cf8ffaa5f467577d27b2c2617ed32e5f34
 	}
 }
 
