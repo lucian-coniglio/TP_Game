@@ -37,9 +37,7 @@ object nivel1 {
 		const booster1 = new Booster(position = utilidadesParaJuego2.posicionArbitraria())
 		game.addVisual(booster1)
 		
-		//al ejecutar tira un error
-		//game.addVisual(saludAlien)
-		//game.addVisual(energiaAlien)
+		
 		//game.addVisual(alien.energia().toString())
 		//game.addVisual(alien.salud().toString())
 		
@@ -49,6 +47,10 @@ object nivel1 {
 		
 		// personaje, es importante que sea el último visual que se agregue
 		game.addVisual(alien)
+		
+		//al ejecutar tira un error
+		game.addVisual(saludAlien)
+		game.addVisual(energiaAlien)
 		
 		game.whenCollideDo(alien, {elemento => elemento.alColisionar()})
 		game.whenCollideDo(caja1, {elemento => elemento.alColisionar()})
