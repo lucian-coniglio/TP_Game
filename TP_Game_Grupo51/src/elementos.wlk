@@ -21,24 +21,34 @@ class Elemento {
 		else {position = position.left(1)}
 	}
 	// agregar comportamiento	
-	method usar() {}
-	method alColisionar() {}
+	method usar() {game.removeVisual(self)}
+	method alColisionar() {game.removeVisual(self)}
 }
 class Enemigo inherits Elemento {
 	const property image = "Enemigo.png"
-	
+	override method usar() {}
+	override method alColisionar() {
+		alien.daniar(5)
+		alien.position(game.center())
+	}
 }
 
 // Elemento que da energia al personaje
 class Materia inherits Elemento {
 	const property image = "Materia.png"
-	override method usar() {alien.consumir(1.randomUpTo(30) ) }
+	override method usar() {
+		super()
+		alien.consumir(1.randomUpTo(30) )
+	}
 }
 
 // Elemento que da salud al personaje
 class Nanomaquinas inherits Elemento {
 	const property image = "Nanomaquina.png"
-	override method usar() {alien.curar(1.randomUpTo(30) ) }
+	override method usar() {
+		super()
+		alien.curar(1.randomUpTo(30) )
+	}
 }
 
 //Elemento coleccionable
@@ -51,21 +61,21 @@ class TarjetaAcceso inherits Elemento {
 class Trampa inherits Elemento {
 	const property image = "Trampa.png"
 	override method usar() {}
-	override method alColisionar() {alien.daniar(15)}
+	override method alColisionar() {super() alien.daniar(15)}
 }
 
 // Trampa que aumenta 15 energia
 class Booster inherits Elemento {
 	const property image = "Energizante.png"
 	override method usar() {}
-	override method alColisionar() {alien.consumir(30)}
+	override method alColisionar() {super() alien.consumir(30)}
 }
 
 // Trampa que cambia de lugar al personaje
 class Teletransportador inherits Elemento {
 	const property image = "Teletransportador.png"
 	override method usar() {}
-	override method alColisionar() {alien.position(utilidadesParaJuego.posicionArbitraria() ) }
+	override method alColisionar() {super() alien.position(utilidadesParaJuego.posicionArbitraria() ) }
 }
 //Testear Colision
 class Caja inherits Elemento {
@@ -73,7 +83,7 @@ class Caja inherits Elemento {
 	override method usar() {}
 	override method alColisionar() {
 		if (alien.ultimaDireccion() == "arriba") {
-			self.subir()
+			self.bajar()
 		}
 		else if (alien.ultimaDireccion() == "abajo") {
 			self.bajar()
@@ -95,8 +105,8 @@ class Dinero inherits Elemento {
 	}
 
 	override method alColisionar() {
+		super()
 		alien.ahorra(3)
 		alien.daniar(5)
 	}
-
 }
