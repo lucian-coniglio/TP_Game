@@ -2,6 +2,8 @@ import wollok.game.*
 import fondo.*
 import personajes.*
 import utilidades.*
+import nivel1.*
+import elementos.*
 
 object nivelLlaves {
 	//Collecion para usar elementos, agregarlos al crear el nivel
@@ -10,33 +12,32 @@ object nivelLlaves {
 	method configurate() {
 		// fondo - es importante que sea el primer visual que se agregue
 		game.addVisual(new Fondo(image="Fondo_Area_51.png"))
-				 
-		// otros visuals, p.ej. bloques o llaves
-		game.addVisual(alien.energia())
-		game.addVisual(alien.salud())
 		
+		//game.addVisual(energiaAlien)
+		//game.addVisual(saludAlien)
+		
+		keyboard.e().onPressDo{game.say(alien, alien.energia())}
+		keyboard.q().onPressDo{game.say(alien, alien.salud())}
 		
 		// personaje, es importante que sea el último visual que se agregue
 		game.addVisual(alien)
 		
 		// teclado
-		
 		keyboard.w().onPressDo{if (alien.tieneEnergia()) {alien.subir()}}
 		keyboard.d().onPressDo{if (alien.tieneEnergia()) {alien.derecha()}}
 		keyboard.a().onPressDo{if (alien.tieneEnergia()) {alien.izquierda()}}
 		keyboard.s().onPressDo{if (alien.tieneEnergia()) {alien.bajar()}}
 		
-		//Usar elementos si es que estan a una posicion de distancia del alien
-		keyboard.e().onPressDo({elementos.forEach({elem => if (posicion.seEncuentranCerca(alien, elem)) {elem.usar()} else {} } ) } )
+		//Los elementos se utilizan al colisionar con ellos
+		game.whenCollideDo(alien, {elemento => elemento.alColisionar() elementos.remove(elemento)} )
 		
 		// este es para probar, no es necesario dejarlo
 		keyboard.g().onPressDo({ self.ganar() })
 
 		// colisiones, acá sí hacen falta
 		// faltan casos de movimiento/empujar
-		game.whenCollideDo(alien, {elemento => elemento.alColisionar() } )
+		
 	}
-	
 	method ganar() {
 		// es muy parecido al terminar() de nivelBloques
 		// el perder() también va a ser parecido
@@ -59,12 +60,4 @@ object nivelLlaves {
 			})
 		})
 	}
-	
-	method comprobarSiGano() {
-		if (elementos.all{ c => c.colisionoConTodos() and alien.tieneEnergia() }) {
-			game.say(alien, "GANASTE")
-			game.addVisual("puerta.png")
-		}
-	}
-
 }
