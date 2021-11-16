@@ -9,7 +9,6 @@ object utilidadesParaJuego {
 		)
 	}
 }
-// Testear
 object utilidadesParaJuego2 {
 	const pos = game.at(0.randomUpTo(game.width()).truncate(0), 0.randomUpTo(game.height()).truncate(0) )
 	method posicionArbitraria() {
@@ -37,31 +36,26 @@ object posArbitrariasUsadas {
 //Mostrar energia del alien en pantalla
 object energiaAlien {
 	const property position = game.at(1, game.height() - 1)
-	var property energia = alien.energia()
-	method text() = energia
+	method text() = "Energia: " + alien.energia().toString()
 	method textColor() = "00FF00FF"
+	method alColisionar() {}
 }
 
 //Mostrar salud del alien en pantalla
 object saludAlien {
 	const property position = game.at(1, game.height() - 3)
-	var property salud = alien.salud()
-	method text() = salud
+	method text() = "Salud: " + alien.salud().toString()
 	method textColor() = "FF0000FF"
+	method alColisionar() {}
 }
 
 object posicion {
 	//Verifica que dos elementos esten a una sola posicion de distancia del otro
 	method seEncuentranCerca(elem1, elem2) {
-<<<<<<< HEAD
-		return (elem1.position().y() == elem2.position().y() and (elem2.position().x() - elem2.position().x()).abs() == 1)
-		or (elem1.position().x() == elem2.position().x() and (elem1.position().y() - elem2.position().y()).abs() == 1)
-=======
 		return (elem1.position().y() == elem2.position().y() and elem2.position().x() - elem2.position().x().abs() == 1)
 		or (elem1.position().x() == elem2.position().x() and elem1.position().y() - elem2.position().y().abs() == 1)
 		or (elem1.position().y() == elem2.position().y() and elem2.position().x() - elem2.position().x().abs() == -1)
 		or (elem1.position().x() == elem2.position().x() and elem1.position().y() - elem2.position().y().abs() == -1)
->>>>>>> 160b54cf8ffaa5f467577d27b2c2617ed32e5f34
 	}
 }
 
