@@ -99,6 +99,7 @@ class Caja inherits Elemento {
 		else {
 			self.izquierda()
 		}
+		nivel1.comprobarVictoria()
 	}
 }
 // Elemento que da dinero y quita salud 
@@ -121,5 +122,5 @@ class Panel inherits Elemento{
 	const property image = "Panel.png"
 	override method usar() {}
 	override method alColisionar() {}
-	method estaOcupado() {return nivel1.cajas()}
+	method estaOcupado() {return nivel1.cajas().any({caja => caja.position() == self.position()})}
 }
