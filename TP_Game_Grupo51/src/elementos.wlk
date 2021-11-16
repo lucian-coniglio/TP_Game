@@ -70,7 +70,6 @@ class Teletransportador inherits Elemento {
 //Testear Colision
 class Caja inherits Elemento {
 	const property image = "Caja.png"
-	method estaBienPosicionada() {}
 	override method usar() {}
 	override method alColisionar() {
 		if (alien.ultimaDireccion() == "arriba") {

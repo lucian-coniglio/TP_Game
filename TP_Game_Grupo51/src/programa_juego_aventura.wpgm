@@ -2,14 +2,16 @@ import wollok.game.*
 import nivel1.*
 import personajes.*
 import utilidades.*
+import nivel2.*
+import elementos.*
+import fondo.*
 program juego_aventura {
 
 	game.title("Escape AREA-51")
 	game.height(16)
 	game.width(16)
 	game.boardGround("fondoBlanco.png")
-		
-	nivelBloques.configurate()
 	
+	nivelBloques.configurate()
 	game.start()
 }
