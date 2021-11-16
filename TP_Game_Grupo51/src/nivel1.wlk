@@ -28,7 +28,7 @@ object nivelBloques {
 		keyboard.s().onPressDo{if (alien.tieneEnergia()) {alien.bajar()}}
 		
 		//Usar elementos
-		keyboard.e().onPressDo({elementosEnNivel.elementos().forEach({elem => if (posicion.seEncuentranCerca(alien, elem)) {elem.usar()} else {} } ) } )
+		keyboard.e().onPressDo({elementos.forEach({elem => if (posicion.seEncuentranCerca(alien, elem)) {elem.usar()} else {} } ) } )
 		
 		// este es para probar, no es necesario dejarlo
 		keyboard.t().onPressDo({ self.terminar() })
