@@ -13,7 +13,7 @@ object alien {
 	var property salud = 30
 	var property dinero = 0
 	//Direccion para usar durante colision
-	var property ultimaDireccion = "arriba"
+	var property ultimaDireccion = arriba
 	
 	method consumir(cantEnergia) {
 		energia += cantEnergia
@@ -39,7 +39,7 @@ object alien {
 		if (position.y() == game.height() - 1) {position = game.at(position.x(), 0)}
 		else {position = position.up(1)}
 		energia -= 1
-		ultimaDireccion = "arriba"
+		ultimaDireccion = arriba
 		energiaAlien.energia(energia)
 	}
 	method bajar() {
@@ -47,7 +47,7 @@ object alien {
 		if (position.y() == 0) {position = game.at(position.x(), game.height() - 1)}
 		else {position = position.down(1)}
 		energia -= 1
-		ultimaDireccion = "abajo"
+		ultimaDireccion = abajo
 		energiaAlien.energia(energia)
 	}
 	method derecha() {
@@ -55,7 +55,7 @@ object alien {
 		if (position.x() == game.width() - 1) {position = game.at(0, position.y())}
 		else {position = position.right(1)}
 		energia -= 1
-		ultimaDireccion = "derecha"
+		ultimaDireccion = derecha
 		energiaAlien.energia(energia)
 	}
 	method izquierda() {
@@ -63,7 +63,19 @@ object alien {
 		if (position.x() == 0) {position = game.at(game.width() - 1, position.y())}
 		else {position = position.left(1)}
 		energia -= 1
-		ultimaDireccion = "izquierda"
+		ultimaDireccion = izquierda
 		energiaAlien.energia(energia)
+	}
+	object arriba {
+		
+	}
+	object abajo {
+		
+	}
+	object derecha {
+		
+	}
+	object izquierda {
+		
 	}
 }
