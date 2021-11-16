@@ -52,14 +52,6 @@ object posicion {
 	}
 }
 
-<<<<<<< HEAD
-=======
-object elementosEnNivel {
-	const property elementos = []
-	method agregarElem(elemento) {elementos.add(elemento)}
-	method vaciarColeccion() {elementos.clear()}
-}
-
 >>>>>>> branch 'main' of https://github.com/lucian-coniglio/TP_Game.git
 object nivelSuperado {
 	var property position = game.center()
