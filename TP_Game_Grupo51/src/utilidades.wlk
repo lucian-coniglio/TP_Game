@@ -1,4 +1,4 @@
-
+import elementos.*
 import wollok.game.*
 import personajes.*
 
@@ -33,14 +33,17 @@ object posArbitrariasUsadas {
 
 //Mostrar energia del alien en pantalla
 object energiaAlien {
-	const property position = game.at(game.height() - 1, 3)
-	method text() = alien.energia()
+	const property position = game.at(9, 3)
+	var property energia = alien.energia()
+	method text() = energia
+	method textColor() = "00FF00FF"
 }
 
 //Mostrar salud del alien en pantalla
 object saludAlien {
-	const property position = game.at(game.height() - 1, 1)
-	method text() = alien.salud()
+	const property position = game.at(9, 1)
+	var property salud = alien.salud()
+	method text() = salud
 	method textColor() = "FF0000FF"
 }
 
@@ -52,7 +55,6 @@ object posicion {
 	}
 }
 
->>>>>>> branch 'main' of https://github.com/lucian-coniglio/TP_Game.git
 object nivelSuperado {
 	var property position = game.center()
 	
