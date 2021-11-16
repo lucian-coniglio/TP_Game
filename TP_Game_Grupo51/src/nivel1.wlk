@@ -12,13 +12,27 @@ object nivelBloques {
 	method configurate() {
 		// fondo - es importante que sea el primer visual que se agregue
 		game.addVisual(new Fondo(image="Fondo_Area_51.png"))
-				 
-		// otros visuals, p.ej. bloques o llaves
-		game.addVisual(new Enemigo(position = game.at(3,12)))
-		game.addVisual(saludAlien)
-		game.addVisual(energiaAlien)
 		
-			
+		const guardia1 = new Enemigo(position = game.at(3,12))
+		const booster1 = new Booster(position = game.at(5,12))
+		const maquina1 = new Nanomaquinas(position = game.at(7,4))
+		
+		//pruebas con colisiones y energia
+		game.addVisual(guardia1)
+		elementos.add(guardia1)
+		game.addVisual(booster1)
+		elementos.add(booster1)
+		game.addVisual(maquina1)
+		elementos.add(maquina1)
+		
+		//al ejecutar tira un error
+		//game.addVisual(saludAlien)
+		//game.addVisual(energiaAlien)
+		
+		//preferible, por ahora, que se lo pregunte
+		keyboard.e().onPressDo{game.say(alien, alien.energia())}
+		keyboard.q().onPressDo{game.say(alien, alien.salud())}
+		
 		// personaje, es importante que sea el último visual que se agregue
 		game.addVisual(alien)
 		
@@ -30,12 +44,12 @@ object nivelBloques {
 		keyboard.s().onPressDo{if (alien.tieneEnergia()) {alien.bajar()}}
 		
 		//Usar elementos
-		keyboard.e().onPressDo({elementos.forEach({elem => if (posicion.seEncuentranCerca(alien, elem)) {elem.usar()} else {} } ) } )
+		game.whenCollideDo(alien, {elemento => elemento.alColisionar() elementos.remove(elemento)} )
 		
 		// este es para probar, no es necesario dejarlo
 		keyboard.t().onPressDo({ self.terminar() })
 
-		// en este no hacen falta colisiones
+		// en este no hacen falta colisiones*/
 	}
 	method terminar() {
 		// game.clear() limpia visuals, teclado, colisiones y acciones
@@ -57,5 +71,5 @@ object nivelBloques {
 				nivelLlaves.configurate()
 			})
 		})
-	}	
+	}
 }
