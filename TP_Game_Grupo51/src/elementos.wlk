@@ -50,10 +50,6 @@ class Nanomaquinas inherits Elemento {
 		super()
 		alien.curar(5.randomUpTo(15) )
 	}
-	override method alColisionar() {
-		super()
-		alien.curar(5.randomUpTo(15))
-	}
 }
 
 //Elemento coleccionable
