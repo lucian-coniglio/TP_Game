@@ -60,8 +60,8 @@ object nivel1 {
 		keyboard.a().onPressDo{if (alien.tieneEnergia()) {alien.izquierda()}}
 		keyboard.s().onPressDo{if (alien.tieneEnergia()) {alien.bajar()}}
 		
-		//Usar elementos
-		
+		//Usar elementos TESTEAR
+		//keyboard.e().onPressDo{elementos.forEach({elemento => if (posicion.seEncuentranCerca(alien, elemento)) {elemento.usar()} else {} } ) }
 		
 		// este es para probar, no es necesario dejarlo
 		keyboard.t().onPressDo({ self.terminar() })
