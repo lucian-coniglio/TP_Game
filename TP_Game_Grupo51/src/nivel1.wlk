@@ -37,13 +37,9 @@ object nivel1 {
 		const booster1 = new Booster(position = utilidadesParaJuego2.posicionArbitraria())
 		game.addVisual(booster1)
 		
-		
-		//game.addVisual(alien.energia().toString())
-		//game.addVisual(alien.salud().toString())
-		
-		//preferible, por ahora, que se lo pregunte
-		keyboard.e().onPressDo{game.say(alien,"energia: " + alien.energia())}
-		keyboard.q().onPressDo{game.say(alien, "salud: " + alien.salud())}
+		//Desabilitado Innecesario
+		//keyboard.e().onPressDo{game.say(alien,"energia: " + alien.energia())}
+		//keyboard.q().onPressDo{game.say(alien, "salud: " + alien.salud())}
 		
 		// personaje, es importante que sea el último visual que se agregue
 		game.addVisual(alien)

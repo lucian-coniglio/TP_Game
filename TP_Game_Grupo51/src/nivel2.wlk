@@ -25,11 +25,13 @@ object nivel2 {
 		game.addVisual(materia1)
 		elementos.add(materia1)
 		
+		// Salud y energia del personaje
 		game.addVisual(energiaAlien)
 		game.addVisual(saludAlien)
 		
-		keyboard.e().onPressDo{game.say(alien, "energia: " + alien.energia())}
-		keyboard.q().onPressDo{game.say(alien, "salud: " +  alien.salud())}
+		//Desabilitado Innecesario
+		//keyboard.e().onPressDo{game.say(alien, "energia: " + alien.energia())}
+		//keyboard.q().onPressDo{game.say(alien, "salud: " +  alien.salud())}
 		
 		// personaje, es importante que sea el último visual que se agregue
 		game.addVisual(alien)
