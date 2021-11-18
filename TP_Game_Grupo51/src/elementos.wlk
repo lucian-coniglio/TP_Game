@@ -118,5 +118,5 @@ class Panel inherits Elemento{
 	const property image = "Panel.png"
 	override method usar() {}
 	override method alColisionar() {}
-	method estaOcupado() {return nivel1.cajas().any({caja => caja.position() == self.position()})}
+	method estaOcupado() = nivel1.cajas().any({caja => caja.position() == self.position()})
 }

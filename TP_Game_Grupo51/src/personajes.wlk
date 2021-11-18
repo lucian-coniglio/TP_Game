@@ -12,18 +12,10 @@ object alien {
 	//Direccion para usar durante colision
 	var property ultimaDireccion = arriba
 	
-	method consumir(cantEnergia) {
-		energia += cantEnergia
-	}
-	method curar(cantSalud) {
-		salud += cantSalud
-	}
-	method daniar(cantDanio) {
-		salud -= cantDanio
-	}
-	method ahorra(cantDinero) {
-		dinero += cantDinero
-	}
+	method consumir(cantEnergia) {energia += cantEnergia}
+	method curar(cantSalud) {salud += cantSalud}
+	method daniar(cantDanio) {salud -= cantDanio}
+	method ahorra(cantDinero) {dinero += cantDinero}
 	
 	method tieneEnergia() = energia > 0
 	method hayElementosCerca(tipo) {}

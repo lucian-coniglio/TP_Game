@@ -30,7 +30,7 @@ object utilidadesParaJuego2 {
 object posArbitrariasUsadas {
 	const property posiciones = []
 	method agregarPosicion(posicion) {posiciones.add(posicion)}
-	method laPosicionEstaUsada(posicion) {return posiciones.contains(posicion)}
+	method laPosicionEstaUsada(posicion) = posiciones.contains(posicion)
 }
 
 //Mostrar energia del alien en pantalla
