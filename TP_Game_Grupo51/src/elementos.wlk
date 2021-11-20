@@ -83,6 +83,9 @@ class Caja inherits Elemento {
 	const property image = "Caja.png"
 	override method usar() {}
 	override method alColisionar() {
+		//Testear, deberia mover el elemento teniendo en cuanta la ultima dir del alien
+		alien.ultimaDireccion().mover(self)
+		/* 
 		if (alien.ultimaDireccion() == "arriba") {
 			self.subir()
 		}
@@ -95,6 +98,7 @@ class Caja inherits Elemento {
 		else {
 			self.izquierda()
 		}
+		*/
 		nivel1.comprobarVictoria()
 	}
 }
