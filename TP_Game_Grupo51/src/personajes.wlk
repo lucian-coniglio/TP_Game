@@ -49,15 +49,4 @@ object alien {
 		ultimaDireccion = izquierda
 	}
 }
-object arriba {
-		
-}
-object abajo {
-	
-}
-object derecha {
-		
-}
-object izquierda {
-		
-}
+

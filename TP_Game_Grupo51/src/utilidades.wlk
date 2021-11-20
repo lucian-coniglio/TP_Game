@@ -53,7 +53,29 @@ object posicion {
 	//Verifica que dos elementos esten a una sola posicion de distancia del otro
 	method seEncuentranCerca(elem1, elem2) {
 		return elem1.position().y() == elem2.position().y() and (elem2.position().x() - elem2.position().x()).abs() == 1
-		or elem1.position().x() == elem2.position().x() and (elem1.position().y() - elem2.position().y()).abs() == 1
+		or elem1.position().x() == elem2.position().x() and (elem1.position().y() - elem2.position().y()).abs() == 1}
+}
+
+//objetos direcciones para mover elementos en colision
+object arriba {
+	method mover(elemento) {
+		elemento.subir()
+	}
+}
+object abajo {
+	method mover(elemento) {
+		elemento.bajar()
+	}
+}
+object derecha {
+	method mover(elemento) {
+		elemento.derecha()
+	}
+}
+object izquierda {
+	method mover(elemento) {
+		elemento.izquierda()
+	}
 }
 
 object nivelSuperado {
