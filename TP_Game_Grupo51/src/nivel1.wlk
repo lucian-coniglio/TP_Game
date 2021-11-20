@@ -14,6 +14,13 @@ object nivel1 {
 		// fondo - es importante que sea el primer visual que se agregue
 		game.addVisual(new Fondo(image="Fondo_Area_51.png"))
 		
+		//Testear times()
+		/*
+		 * 3.times({e => e = new Panel(position = utilidadesParaJuego2.posicionArbitraria())
+		 * game.addVisual(e)
+		 * paneles.add(e)
+		 * })
+		 */
 		const panel1 = new Panel(position = utilidadesParaJuego2.posicionArbitraria())
 		game.addVisual(panel1)
 		paneles.add(panel1)
@@ -24,6 +31,13 @@ object nivel1 {
 		game.addVisual(panel3)
 		paneles.add(panel3)
 		
+		//Testear times()
+		/*
+		 *3.times({c => c = Caja(position = utilidadesParaJuego2.posicionArbitraria())
+		 * game.addVisual(c)
+		 * cajas.add(c)
+		 * }) 
+		 */
 		const caja1 = new Caja(position = utilidadesParaJuego2.posicionArbitraria())
 		game.addVisual(caja1)
 		cajas.add(caja1)

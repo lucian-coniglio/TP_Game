@@ -6,7 +6,7 @@ import nivel1.*
 import elementos.*
 
 object nivel2 {
-	//Collecion para usar elementos, agregarlos al crear el nivel
+	//Coleccion para usar elementos, agregarlos al crear el nivel
 	const property elementos = []
 	
 	method configurate() {
@@ -42,11 +42,20 @@ object nivel2 {
 		keyboard.a().onPressDo{if (alien.tieneEnergia()) {alien.izquierda()}}
 		keyboard.s().onPressDo{if (alien.tieneEnergia()) {alien.bajar()}}
 		
-		game.whenCollideDo(alien, {elemento => elemento.alColisionar() elementos.remove(elemento) self.comprobarVictoria()} )
-		keyboard.r().onPressDo{elementos.filter({elem => utilidadesParaJuego2.puedeRecogerse(elem)})
-			.forEach({elem => elem.usar() elementos.remove(elem) self.comprobarVictoria()})}
+		game.whenCollideDo(alien, {elemento => elemento.alColisionar() 
+			elementos.remove(elemento) 
+			self.comprobarVictoria()
+		} )
+		keyboard.r().onPressDo{elementos.filter({elem => utilidadesParaJuego2.puedeRecogerse(elem)}).forEach({elem => 
+			elem.usar() 
+			elementos.remove(elem) 
+			self.comprobarVictoria()
+		})}
 		
-		game.whenCollideDo(alien, {elemento => elemento.alColisionar() elementos.remove(elemento) self.comprobarVictoria()} )
+		game.whenCollideDo(alien, {elemento => elemento.alColisionar() 
+			elementos.remove(elemento) 
+			self.comprobarVictoria()
+		} )
 		
 		keyboard.g().onPressDo({ self.ganar() })
 	}
