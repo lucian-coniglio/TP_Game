@@ -48,5 +48,6 @@ object alien {
 		energia -= 1
 		ultimaDireccion = izquierda
 	}
+	method ultimaDireccion() = ultimaDireccion
 }
 
