@@ -14,50 +14,13 @@ object nivel1 {
 		// fondo - es importante que sea el primer visual que se agregue
 		game.addVisual(new Fondo(image="Fondo_Area_51.png"))
 		
-		//Testear times() 2 formas si funcionan las 2 dejar la primera
-		/* 
-		3.times({paneles.add(new Panel(position = utilidadesParaJuego2.posicionArbitraria()))})
-		paneles.forEach({p => game.addVisual(p)})
-		*/
 		
-		/* 
-		3.times({e => e = new Panel(position = utilidadesParaJuego2.posicionArbitraria())
-		game.addVisual(e)
-		paneles.add(e)})
-		 */
+		3.times({p => paneles.add(new Panel(position = utilidadesParaJuego.posicionArbitraria()))})
+        paneles.forEach({p => game.addVisual(p)})
 		
-		const panel1 = new Panel(position = utilidadesParaJuego2.posicionArbitraria())
-		game.addVisual(panel1)
-		paneles.add(panel1)
-		const panel2 = new Panel(position = utilidadesParaJuego2.posicionArbitraria())
-		game.addVisual(panel2)
-		paneles.add(panel2)
-		const panel3 = new Panel(position = utilidadesParaJuego2.posicionArbitraria())
-		game.addVisual(panel3)
-		paneles.add(panel3)
+		3.times({p => cajas.add(new Caja(position = utilidadesParaJuego.posicionArbitraria()))})
+        cajas.forEach({p => game.addVisual(p)})
 		
-		
-		//Testear times() 2 formas si funcionan las 2 dejar la primera
-		/* 
-		 3.times({cajas.add(new Caja(position = utilidadesParaJuego2.posicionArbitraria()))})
-		 * cajas.forEach({c => game.addVisual(c)})
-		 */
-		
-		/*
-		 *3.times({c => c = Caja(position = utilidadesParaJuego2.posicionArbitraria())
-		 * game.addVisual(c)
-		 * cajas.add(c)
-		 * }) 
-		 */
-		const caja1 = new Caja(position = utilidadesParaJuego2.posicionArbitraria())
-		game.addVisual(caja1)
-		cajas.add(caja1)
-		const caja2 = new Caja(position = utilidadesParaJuego2.posicionArbitraria())
-		game.addVisual(caja2)
-		cajas.add(caja2)
-		const caja3 = new Caja(position = utilidadesParaJuego2.posicionArbitraria())
-		game.addVisual(caja3)
-		cajas.add(caja3)
 		
 		const booster1 = new Booster(position = utilidadesParaJuego2.posicionArbitraria())
 		game.addVisual(booster1)
@@ -70,9 +33,7 @@ object nivel1 {
 		game.addVisual(energiaAlien)
 		
 		game.whenCollideDo(alien, {elemento => elemento.alColisionar()})
-		game.whenCollideDo(caja1, {elemento => elemento.alColisionar()})
-		game.whenCollideDo(caja2, {elemento => elemento.alColisionar()})
-		game.whenCollideDo(caja3, {elemento => elemento.alColisionar()})
+		cajas.forEach({caja => game.whenCollideDo(caja, {elemento => elemento.alColisionar()})})
 		
 		// teclado
 		
