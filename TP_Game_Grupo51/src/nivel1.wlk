@@ -15,17 +15,17 @@ object nivel1 {
 		game.addVisual(new Fondo(image="Fondo_Area_51.png"))
 		
 		//Testear times() 2 formas si funcionan las 2 dejar la primera
-		/*
-		 * 3.times({paneles.add({new Panel(position = utilidadesParaJuego2.posicionArbitraria())}) })
-		 * paneles.forEach({p => game.addVisual(p)})
+		/* 
+		3.times({paneles.add(new Panel(position = utilidadesParaJuego2.posicionArbitraria()))})
+		paneles.forEach({p => game.addVisual(p)})
+		*/
+		
+		/* 
+		3.times({e => e = new Panel(position = utilidadesParaJuego2.posicionArbitraria())
+		game.addVisual(e)
+		paneles.add(e)})
 		 */
 		
-		/*
-		 * 3.times({e => e = new Panel(position = utilidadesParaJuego2.posicionArbitraria())
-		 * game.addVisual(e)
-		 * paneles.add(e)
-		 * })
-		 */
 		const panel1 = new Panel(position = utilidadesParaJuego2.posicionArbitraria())
 		game.addVisual(panel1)
 		paneles.add(panel1)
@@ -35,6 +35,7 @@ object nivel1 {
 		const panel3 = new Panel(position = utilidadesParaJuego2.posicionArbitraria())
 		game.addVisual(panel3)
 		paneles.add(panel3)
+		
 		
 		//Testear times() 2 formas si funcionan las 2 dejar la primera
 		/* 
@@ -61,14 +62,10 @@ object nivel1 {
 		const booster1 = new Booster(position = utilidadesParaJuego2.posicionArbitraria())
 		game.addVisual(booster1)
 		
-		//Desabilitado Innecesario
-		//keyboard.e().onPressDo{game.say(alien,"energia: " + alien.energia())}
-		//keyboard.q().onPressDo{game.say(alien, "salud: " + alien.salud())}
 		
 		// personaje, es importante que sea el último visual que se agregue
 		game.addVisual(alien)
 		
-		//al ejecutar tira un error
 		game.addVisual(saludAlien)
 		game.addVisual(energiaAlien)
 		
@@ -79,10 +76,10 @@ object nivel1 {
 		
 		// teclado
 		
-		keyboard.w().onPressDo{if (alien.tieneEnergia()) {alien.subir()}}
-		keyboard.d().onPressDo{if (alien.tieneEnergia()) {alien.derecha()}}
-		keyboard.a().onPressDo{if (alien.tieneEnergia()) {alien.izquierda()}}
-		keyboard.s().onPressDo{if (alien.tieneEnergia()) {alien.bajar()}}
+		keyboard.w().onPressDo{if (alien.tieneEnergia()) {alien.subir()} else {self.perder()}}
+		keyboard.d().onPressDo{if (alien.tieneEnergia()) {alien.derecha()} else {self.perder()}}
+		keyboard.a().onPressDo{if (alien.tieneEnergia()) {alien.izquierda()} else {self.perder()}}
+		keyboard.s().onPressDo{if (alien.tieneEnergia()) {alien.bajar()} else {self.perder()}}
 		
 		//Usar elementos TESTEAR
 		//keyboard.e().onPressDo{elementos.forEach({elemento => if (posicion.seEncuentranCerca(alien, elemento)) {elemento.usar()} else {} } ) }
@@ -92,6 +89,16 @@ object nivel1 {
 
 		// en este no hacen falta colisiones*/
 	}
+	
+	method perder() {
+		game.schedule(100, {
+			game.clear()
+			game.addVisual(new Fondo(image="Fondo_Derrota.png"))
+			game.addVisual(derrota)
+			game.schedule(2500, {game.stop()})
+		})
+	}
+	
 	method terminar() {
 		game.schedule(200, {
 			// game.clear() limpia visuals, teclado, colisiones y acciones
@@ -117,5 +124,8 @@ object nivel1 {
 	}
 	method comprobarVictoria() {
 		if(paneles.all({panel => panel.estaOcupado()})) {self.terminar()}
+	}
+	method comprobarDerrota() {
+		if (alien.energia() <= 0 and alien.salud() <= 0) {self.perder()}
 	}
 }
