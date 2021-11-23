@@ -8,6 +8,7 @@ import elementos.*
 object nivel2 {
 	//Coleccion para usar elementos, agregarlos al crear el nivel
 	const property elementos = []
+	const property elementos2 = []
 	
 	method configurate() {
 		// fondo - es importante que sea el primer visual que se agregue
@@ -28,10 +29,10 @@ object nivel2 {
 		game.addVisual(alien)
 		
 		// teclado
-		keyboard.w().onPressDo{if (alien.tieneEnergia()) {alien.subir()} self.comprobarDerrota()}
-		keyboard.d().onPressDo{if (alien.tieneEnergia()) {alien.derecha()} self.comprobarDerrota()}
-		keyboard.a().onPressDo{if (alien.tieneEnergia()) {alien.izquierda()} self.comprobarDerrota()}
-		keyboard.s().onPressDo{if (alien.tieneEnergia()) {alien.bajar()} self.comprobarDerrota()}
+		keyboard.w().onPressDo{if (alien.tieneEnergia()) {alien.subir()} else {nivel1.perder()}}
+		keyboard.d().onPressDo{if (alien.tieneEnergia()) {alien.derecha()} else {nivel1.perder()}}
+		keyboard.a().onPressDo{if (alien.tieneEnergia()) {alien.izquierda()} else {nivel1.perder()}}
+		keyboard.s().onPressDo{if (alien.tieneEnergia()) {alien.bajar()} else {nivel1.perder()}}
 		
 		game.whenCollideDo(alien, {elemento => elemento.alColisionar() 
 			elementos.remove(elemento) 
@@ -71,41 +72,15 @@ object nivel2 {
 		})
 	}
 	method agregarElementos() {
-		const guardia1 = new Enemigo(position = utilidadesParaJuego2.posicionArbitraria())
-		const guardia2 = new Enemigo(position = utilidadesParaJuego2.posicionArbitraria())
-		const maquina1 = new Nanomaquinas(position = utilidadesParaJuego2.posicionArbitraria())
-		const trampa1 = new Trampa(position = utilidadesParaJuego2.posicionArbitraria())
-		const materia1 = new Materia(position = utilidadesParaJuego2.posicionArbitraria())
-		const teletransportador = new Teletransportador(position = utilidadesParaJuego2.posicionArbitraria())
-		const trampa2 = new Trampa(position = utilidadesParaJuego2.posicionArbitraria())
-		const materia2 = new Materia(position = utilidadesParaJuego2.posicionArbitraria())
-		const dinero1 = new Dinero(position = utilidadesParaJuego2.posicionArbitraria())
-		const dinero2 = new Dinero(position = utilidadesParaJuego2.posicionArbitraria())
-		const dinero3 = new Dinero(position = utilidadesParaJuego2.posicionArbitraria())
-		const dinero4 = new Dinero(position = utilidadesParaJuego2.posicionArbitraria())
-		const dinero5 = new Dinero(position = utilidadesParaJuego2.posicionArbitraria())
+		2.times({p => elementos2.add(new Enemigo(position = utilidadesParaJuego.posicionArbitraria()))})
+		elementos.add(new Nanomaquinas(position = utilidadesParaJuego2.posicionArbitraria()))
+		2.times({p => elementos2.add(new Trampa(position = utilidadesParaJuego.posicionArbitraria()))})
+		2.times({p => elementos.add(new Materia(position = utilidadesParaJuego.posicionArbitraria()))})
+		elementos2.add(new Teletransportador(position = utilidadesParaJuego2.posicionArbitraria()))
+		5.times({p => elementos.add(new Dinero(position = utilidadesParaJuego.posicionArbitraria()))})
 		
-		game.addVisual(guardia1)
-		game.addVisual(guardia2)
-		game.addVisual(maquina1)
-		elementos.add(maquina1)
-		game.addVisual(trampa1)
-		game.addVisual(materia1)
-		elementos.add(materia1)
-		game.addVisual(trampa2)
-		game.addVisual(materia2)
-		elementos.add(materia2)
-		game.addVisual(teletransportador)
-		game.addVisual(dinero1)
-		game.addVisual(dinero2)
-		game.addVisual(dinero3)
-		game.addVisual(dinero4)
-		game.addVisual(dinero5)
-		elementos.add(dinero1)
-		elementos.add(dinero2)
-		elementos.add(dinero3)
-		elementos.add(dinero4)
-		elementos.add(dinero5)
+		elementos.forEach({elem => game.addVisual(elem)})
+		elementos2.forEach({elem => game.addVisual(elem)})
 	}
 	
 
