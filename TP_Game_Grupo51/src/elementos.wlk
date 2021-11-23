@@ -39,7 +39,11 @@ class Materia inherits Elemento {
 	const property image = "Materia.png"
 	override method usar() {
 		super()
-		alien.consumir(1.randomUpTo(30))
+		alien.consumir(1.randomUpTo(30).truncate(0))
+	}
+	override method alColisionar() {
+		super()
+		alien.consumir(1.randomUpTo(30).truncate(0))
 	}
 }
 
@@ -48,7 +52,11 @@ class Nanomaquinas inherits Elemento {
 	const property image = "Nanomaquina.png"
 	override method usar() {
 		super()
-		alien.curar(5.randomUpTo(15) )
+		alien.curar(5.randomUpTo(15).truncate(0) )
+	}
+	override method alColisionar() {
+		super()
+		alien.curar(1.randomUpTo(15).truncate(0))
 	}
 }
 
@@ -69,14 +77,14 @@ class Trampa inherits Elemento {
 class Booster inherits Elemento {
 	const property image = "Energizante.png"
 	override method usar() {}
-	override method alColisionar() {alien.consumir(30) position = utilidadesParaJuego2.posicionArbitraria()}
+	override method alColisionar() {alien.consumir(30) alien.daniar(1) position = utilidadesParaJuego2.posicionArbitraria()}
 }
 
 // Trampa que cambia de lugar al personaje
 class Teletransportador inherits Elemento {
 	const property image = "Teletransportador.png"
 	override method usar() {}
-	override method alColisionar() {super() alien.position(utilidadesParaJuego.posicionArbitraria() ) }
+	override method alColisionar() {alien.position(utilidadesParaJuego.posicionArbitraria()) }
 }
 //Testear Colision
 class Caja inherits Elemento {
@@ -105,9 +113,12 @@ class Caja inherits Elemento {
 // Elemento que da dinero y quita salud 
 class Dinero inherits Elemento {
 
-	const property image = "dinero.png"
+	const property image = "Billete.png"
 
 	override method usar() {
+		super()
+		alien.ahorra(3)
+		alien.daniar(5)
 	}
 
 	override method alColisionar() {
